@@ -1,0 +1,1263 @@
+
+
+<style>
+    .NT_videos_base{{ section.id }}{
+       width: 100%;
+       display: grid;
+       height: 100vh;
+      position:fixed;
+      top:0;
+      background: #333;
+      z-index: 10000000000;
+    }
+    .NT_videos_base_content_{{ section.id }}{
+      display: grid;
+    }
+
+  .videos_content{
+    width: 430px;
+    height: 90vh;
+    margin: auto;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .video_header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+  .video_user_content{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .videos_controls{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .controls{
+    cursor: pointer;
+    position: relative;
+  }
+  .user_img{
+    width: 32px;
+  }
+   .user_img img{
+    width: 100%;
+    border-radius: 100%;
+  }
+  .video_user_content h2{
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #ffffff;
+  }
+  .number_product{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: rgb(232, 26, 63);
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    font-size: 13px;
+    color: white;
+    display: grid;
+    place-content: center;
+  }
+  .NT_videos{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  .NT_videos video,.NT_videos video:-webkit-full-screen{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .videos_share{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 50%;
+    transform: translate(-0%, -50%);
+  }
+  .videos_share_icons{
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .video_share_quant{
+    color: white;
+    font-size: 14px;
+  }
+  .videos_btn_share{
+    cursor: pointer;
+  }
+
+  .NT_videos_list_products{
+    position: absolute;
+    bottom: 60px;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .NT_videos_products{
+    width: 48%;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100px;
+  }
+  .product_NT_videos_info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     height: 70%;
+     background: white;
+     padding: 5px;
+  }
+  .product_NT_videos_price{
+    width: 60%;
+    height: 100%;
+  }
+  .product_NT_videos_info_img{
+    width: 40%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+  }
+  .product_NT_videos_info_img img{
+    width: 80%;
+    
+  }
+  .btn_NT_videos{
+    width: 100%;
+    height: 30%;
+    background: {{ section.settings.cta_btn_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn_NT_videos a{
+    color: white;
+  }
+  .btn_NT_videos i{
+    font-size: 10px;
+    color: white;
+  }
+  .product_NT_videos_price p{
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .product_NT_videos_price h2{
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .NT_videos_bar{
+    width: 100%;
+    height: 7px;
+    background: rgb(122, 122, 122);
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+  }
+  
+  .NT_videos_collections{
+    background: white;
+    width: 550px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    overflow: hidden;
+  }
+  .NT_videos_collections_header{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    display: grid;
+    place-items: center;
+  }
+  .NT_videos_collections_header div{
+    width: 40px;
+    height: 5px;
+    border-radius: 10px;
+    background: rgb(224, 224, 224);
+  }
+
+  .NT_videos_collections_btns{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 20px;
+    gap: 5px;
+  }
+  .NT_videos_collections_btns div{
+     border: 1px solid rgb(224, 224, 224);
+     border-radius: 4px;
+     padding: 5px 10px;
+     cursor: pointer;
+  }
+  .NT_videos_collections_btns .active{
+    background: rgb(38, 38, 38);
+    color: white;
+  }
+  .NT_videos_collections_products{
+    width: 100%;
+    height: 400px;
+    overflow-y: scroll;
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+  }
+  .NT_videos_collections_product{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 4px;
+    padding: 10px;
+  }
+  .NT_videos_collections_product_img img{
+    width: 80%;
+  }
+ 
+  .NT_videos_collections_product_texts h2{
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .NT_videos_collections_product_btn a{
+    font-size: 17px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: {{ section.settings.cta_btn_color }};
+    color: white;
+  }
+
+  .hide_collection_product{
+    display: none;
+  }
+  .NT_videos_close{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+     background: #383838;
+  }
+  .NT_videos_collections_base{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+   
+  }
+  .NT_videos_collections_close{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.548);
+  }
+  .NT_videos_collections_base{
+    display: none;
+  }
+  .NT_videos_show_collection_base{
+    display: block;
+  }
+  .NT_videos_hide_collection_base{
+    display: none!important;
+  }
+
+  .NT_videos_collections_content{
+   
+  }
+
+  .NT_videos_collections_content_empty{
+    width: 100%;
+    display: grid;
+    padding: 20px;
+    text-align: center;
+  }
+  .NT_videos_collections_content_empty div{
+    margin: auto;
+    text-align: center;
+  }
+   .NT_videos_collections_content_empty div svg{
+    margin: auto;
+  }
+  .NT_videos_collections_content_empty h2 {
+    max-width: 231px;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 25px auto;
+    white-space: pre-line;
+}
+.NT_videos_collections_content_empty div p{
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.NT_videos_see_collections{
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 10px;
+    width: max-content;
+    min-width: max-content;
+    height: max-content;
+    border: 1px solid rgb(220, 222, 223);
+    color: rgb(38, 38, 38);
+    font-size: 14px;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.NT_icon_like_hide{
+  display: none!important;
+}
+.NT_icon_like_show{
+  display: block!important;
+}
+.NT_video_icon_fill{
+  display: none;
+}
+
+
+
+.NT_icon_like_show_modal{
+  display: grid;
+}
+.NT_videos_items{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.NT_videos{
+  background: #525252;
+}
+.NT_videos_items,.all_videos{
+  display: none;
+}
+
+
+.show_video_current{
+  display: block;
+}
+
+
+.hide_video_current{
+  display: none;
+}
+.show_product_current{
+  display: flex;
+}
+.hide_product_current{
+  display: none;
+}
+.play_video{
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  top: 30px;
+  left: 30px;
+  color: white;
+}
+
+.muted_false{
+  display: none;
+}
+.muted_true{
+  display: block;
+}
+.NT_video_muted svg{
+  pointer-events: none;
+}
+
+.NT_videos_bar > span{
+   
+    display: block;
+    height: inherit;
+    background: {{ section.settings.cta_btn_color }};
+    transform: translateX(-100%);
+    animation: thumb 47s forwards linear infinite;
+}
+
+@keyframes thumb {
+    to{
+        transform: initial;
+    }
+}
+.NT_videos_bar{
+  display: none;
+}
+
+.NT_video_preview{
+  position: fixed;
+  bottom: 100px;
+  margin: 32px;
+  height: 200px;
+  width: 110px;
+  touch-action: pan-y;
+  right: 0;
+  z-index: 100000000;
+}
+.NT_video_preview_base{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+}
+.NT_video_preview_videos{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  cursor: pointer;
+}
+.NT_video_preview_videos video{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  border-radius: 10px;
+}
+.NT_video_preview_close{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 2;
+  cursor: pointer;
+}
+.icon_play_videos{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  cursor: pointer;
+}
+
+
+@media (min-width: 1024px) {
+  .NT_video_preview_close,.icon_play_videos{
+   opacity: 0;
+   transition: all 0.3s ease-in-out;
+}
+
+
+  .NT_video_preview:hover .icon_play_videos,
+  .NT_video_preview:hover .NT_video_preview_close{
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+}
+.all_video_preview{
+  display: none;
+}
+.show_preview_inicial{
+  display: block;
+}
+
+
+.NT_videos_modal_show{
+ display: grid!important;
+}
+.NT_videos_modal_hide{
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .video_header {
+    padding: 20px;
+}
+.videos_controls {
+    width: 50%;
+}
+.NT_videos_products {
+    border-radius: 10px;
+}
+  .videos_content,.NT_videos_collections {
+    width: 100%;
+  }
+  .NT_videos_collections_product_btn{
+    width: 40%;
+  }
+  .NT_videos_collections_product_btn a{
+    font-size: 12px;
+  }
+  .NT_videos_collections_btns{
+    overflow: scroll;
+  }
+  .videos_content {
+    height: 100vh;
+    border-radius: 0px;
+}
+ .product_NT_videos_price h2{
+    font-size: 14px;
+    
+  }
+  .NT_videos_collections_product_texts h2 {
+    font-size: 17px;
+   
+}
+}
+
+.open_play_video{
+  position: absolute;
+  z-index: 2;
+   width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  cursor: pointer;
+}
+.open_play_video video{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+.open_play_video svg{
+  width: 60px!important;
+  height: 60px!important;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+.hide_open_play_video{
+  display: none;
+}
+
+.open_show_mute{
+  display: block;
+}
+.open_hide_mute{
+  display: none;
+}
+</style>
+
+
+<section class="NT_video_preview">
+  <div class="NT_video_preview_close">
+    {% render 'icon-close-video' %}
+  </div>
+ <div class="NT_video_preview_base">
+  <div class="icon_play_videos">
+     {% render 'icon-play-video' %}
+  </div>
+
+   <div class="NT_video_preview_videos">
+    {% for block in section.blocks %}
+        <video loading="lazy" autoplay loop muted playsinline preload="yes" poster="{{ block.settings.video.preview_image | img_url: 'master' }}" data-name="{{ forloop.index }}" class="all_video_preview">
+            <source src="{% for item in block.settings.video.sources offset: 1 %}{{ item.url }}{% endfor %}" type="video/mp4">
+        </video>
+    {% endfor %}
+   </div>
+ </div>
+</section>
+
+
+<section class="NT_videos_base{{ section.id }} NT_videos_modal NT_videos_modal_hide">
+    <div class="NT_videos_close">&nbsp;</div>
+    <div class="NT_videos_base_content_{{ section.id }}">
+       <div class="videos_content">
+
+        <div class="open_play_video hide_open_play_video">
+          {% for block in section.blocks limit: 1 %}
+              <video loading="lazy" autoplay loop muted playsinline preload="yes" poster="{{ block.settings.video.preview_image | img_url: 'master' }}">
+                  <source src="{% for item in block.settings.video.sources offset: 1 %}{{ item.url }}{% endfor %}" type="video/mp4">
+              </video>
+          {% endfor %}
+           {% render 'icon-mute' %}
+        </div>
+
+         <div class="video_header">
+            <div class="video_user_content">
+                <div class="user_img">
+                    <img src="{{ section.settings.image | img_url: 'master' }}" loading="lazy" height="" width="" alt="{{ section.settings.image }}">
+                </div>
+                <h2>{{ section.settings.text }}</h2>
+            </div>
+            <div class="videos_controls">
+              <div class="controls NT_videos_show_collections">
+                {% render 'icon-collection' %}
+                {% for block in section.blocks %}
+                  {% for item in block.settings.product_list %}
+                    
+                    <div class="number_product_length">
+                      
+                    </div>               
+                  {% endfor %}
+                {% endfor %}
+                 <div class="number_product">
+                      0
+                 </div>
+                
+              </div>
+              <div class="controls NT_videos_show_collection_all">
+                {% render 'icon-products' %}
+              </div>
+              <div class="controls NT_video_muted">
+               <div class="muted_true">              
+                  {% render 'icon-mute' %}
+               </div>
+               <div class="muted_false">
+                  {% render 'icon-volume' %}
+               </div>
+              </div>
+              <div class="controls control_close_videos">
+               {% render 'icon-close-2' %}
+              </div>
+            </div>
+         </div>
+         
+
+         <div class="videos_share">
+          {% if section.settings.like %}
+            
+          <div class="videos_share_icons">
+               <div>
+                <div class="NT_video_icon_strock">
+                   {% render 'icon-like' %}
+                </div>
+                <div class="NT_video_icon_fill">
+                   {% render 'icon-like-fill' %}
+                </div>
+               </div>
+               <div class="video_share_quant">0</div>
+          </div>
+          {% endif %}
+            <div class="videos_btn_share">
+                {% render 'icon-share-2' %}
+            </div>
+         </div>
+
+         <div class="NT_videos">
+          
+           {% for block in section.blocks %}
+             
+            <video loading="lazy" autoplay loop muted playsinline preload="yes" data-name="{{ forloop.index }}" poster="{{ block.settings.video.preview_image | img_url: 'master' }}" class="all_videos all_videos_{{ forloop.index0 }} muted">
+              <source src="{% for item in block.settings.video.sources offset: 1 %}{{ item.url }}{% endfor %}" type="video/mp4">
+            </video>
+              
+           {% endfor %}
+           <div class="NT_videos_bar">
+            <span>&nbsp;</span>
+           </div>
+         </div>
+
+          <div class="NT_videos_list_products">
+             {% for block in section.blocks %}
+               <div class="NT_videos_items all_card_product_{{ forloop.index0 }}" data-name="{{ forloop.index }}">
+                   {% for list in block.settings.product_list %}
+                 <div class="NT_videos_products">
+                      <div class="product_NT_videos_info">
+                        <div class="product_NT_videos_info_img">
+                          <img src="{{ list.featured_image | img_url:'small' }}" loading="lazy" height="" width="" alt="{{ list.title }}">
+                        </div>
+                        <div class="product_NT_videos_price">
+                          <p>{{ list.title | truncate: 20 }}</p>
+                          <h2>{{ list.price | money }}</h2>
+                        </div>
+                      </div>
+
+                      <div class="btn_NT_videos">
+                         <a href="{{ list.url }}">Compre agora <i class="fa-solid fa-chevron-right"></i></a>
+                        
+                      </div>
+                 </div>
+                {% endfor %}
+               </div>
+             {% endfor %}
+          </div>
+
+
+       </div>
+
+       </div>
+
+       <div class="NT_videos_collections_base">
+        <div class="NT_videos_collections_close">&nbsp;</div>
+
+         <div class="NT_videos_collections">
+              <div class="NT_videos_collections_header">
+                <div>&nbsp;</div>
+              </div>
+              <div class="NT_videos_collections_content">
+                <div class="NT_videos_collections_btns">
+                  <div class="active" data-btn="{{ section.settings.cta_collection }}">{{ section.settings.cta_collection }}</div>
+                  {% for collection in section.settings.collection_list %}
+                    <div class="" data-btn="{{ collection.title }}">{{ collection.title }}</div>
+                  {% endfor %}
+                </div>
+  
+                <div class="NT_videos_collections_products">
+                  {% for collection in section.settings.collection_list %}
+                    
+                    {% if collection.title == collection.title %}
+                    {% for products in collection.products %}
+                      <div data-collectionName="{{ collection.title }}" class="NT_videos_collection_titles">
+                         <div class="NT_videos_collections_product">
+                            <div class="NT_videos_collections_product_img">
+                              <img src="{{ products.featured_image | img_url:'small' }}" loading="lazy" height="" width="" alt="">
+                            </div>
+                            <div class="NT_videos_collections_product_texts">
+                              <p>{{ products.title | truncate: 30 }}</p>
+                              <h2>{{ products.price | money }}</h2>
+                            </div>
+                            <div class="NT_videos_collections_product_btn">
+                              
+                              <a href="{{ products.url }}">{{ section.settings.cta }}</a>
+                            </div>
+                         </div>
+                         </div>
+                      {% endfor %}
+  
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="NT_videos_collections_content_empty">
+                  <div>
+                     {% render 'cart_collection' %}
+                     <p>{{ section.settings.collection_text1 }}</p>
+                  </div>
+                  
+                   <h2>{{ section.settings.collection_text2 }}</h2>
+                   <div class="NT_videos_see_collections">{{ section.settings.collection_text3 }}</div>
+
+              </div>
+         </div>
+       </div>
+    
+</section>
+
+<script>
+
+var NT_video_preview_close =  document.querySelector('.NT_video_preview_close')
+var NT_video_preview =  document.querySelector('.NT_video_preview')
+
+NT_video_preview_close.addEventListener('click',()=>{
+  NT_video_preview.style.display="none"
+})
+
+var all_video_preview = document.querySelectorAll('.all_video_preview')
+all_video_preview.forEach((preview)=>{
+
+var getVideoPreview = preview.getAttribute('data-name')
+
+var counterPreview = 0 
+var currentpreview=1
+setInterval(()=>{
+  if(counterPreview > 10){
+         counterPreview =0
+       }
+
+       if(counterPreview < 3){
+        currentpreview = 1
+     
+       }
+       if(counterPreview >= 3 && counterPreview < 6){
+          currentpreview = 2
+      
+       }
+        if(counterPreview >=6 && counterPreview <= 9){
+           currentpreview = 3
+         
+       }
+
+       preview.classList.remove('show_preview_inicial')
+
+       if(Number(getVideoPreview) == currentpreview){
+
+         preview.classList.add('show_preview_inicial')
+         
+       }else{
+        preview.classList.remove('show_preview_inicial')
+       }
+    counterPreview ++
+
+},1000)
+
+})
+
+
+
+
+var NT_videos_modal = document.querySelector('.NT_videos_modal')
+var all_videos = document.querySelectorAll('.all_videos')
+var NT_videos_items = document.querySelectorAll('.NT_videos_items')
+
+var NT_videos_close = document.querySelector('.NT_videos_close')
+
+var play_video =document.querySelector('.NT_video_preview_base')
+
+var muted_false = document.querySelector('.muted_false')
+var muted_true = document.querySelector('.muted_true')
+var NT_videos_bar =document.querySelector('.NT_videos_bar')
+var number_product_length = document.querySelectorAll('.number_product_length')
+var number_product = document.querySelector('.number_product')
+number_product.innerHTML=number_product_length.length
+
+var NT_video_preview = document.querySelector('.NT_video_preview')
+var NT_video_preview_videos = document.querySelectorAll('.NT_video_preview_videos video')
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+   
+    NT_video_preview.style.width= '65px'
+    NT_video_preview.style.height= '118px'
+   // NT_video_preview_videos.forEach(e=> e.style.borderRadius='5px')
+    NT_video_preview.style.transition= 'all 0.5s ease-in-out'
+    
+  } else {
+     NT_video_preview.style.width= '110px'
+     NT_video_preview.style.height= '200px'
+    // NT_video_preview_videos.forEach(e=> e.style.borderRadius='10px')
+     NT_video_preview.style.transition= 'all 0.5s ease-in-out'
+  }
+}
+
+
+
+play_video.addEventListener('click',()=>{
+ 
+ 
+   NT_videos_modal.classList.remove('.NT_videos_modal_hide')
+   NT_videos_modal.classList.add('.NT_videos_modal_show')
+    NT_videos_modal.style.display="grid"
+
+  PlayVideo()
+  NT_videos_bar.style.display="block"
+})
+
+function PlayVideo(){
+
+NT_videos_items.forEach((product)=>{
+    var getNameProdut = product.getAttribute('data-name')
+  
+  all_videos.forEach((e)=>{
+     var getName = e.getAttribute('data-name')
+     var counter =0 
+     var current = 1
+    var myInterval = setInterval((i)=>{
+       if(counter > 45){
+         counter =0
+       }
+
+       if(counter < 15){
+        current = 1
+       }
+       if(counter >= 15 && counter < 30){
+          current = 2
+       }
+        if(counter >=30 && counter <= 45){
+           current = 3
+       }
+       
+ 
+  
+      e.classList.add('hide_video_current')
+      
+      e.muted=true
+       if(current == getName){
+
+         e.muted=true
+         e.autoplay=true
+         e.play()
+
+          
+        
+
+         e.classList.add('show_video_current')
+         e.classList.remove('hide_video_current')
+
+           muted_true.addEventListener('click',()=>{
+            muted_true.classList.add('muted_false')
+            muted_true.classList.remove('muted_true')
+            muted_false.classList.add('muted_true')
+            muted_false.classList.remove('muted_false')
+
+             
+              e.classList.remove('muted')
+
+              all_videos.forEach((mute)=>{
+
+              mute.classList.remove('muted')
+              mute.muted=false
+            })
+ 
+          })
+
+           muted_false.addEventListener('click',()=>{
+            
+            muted_false.classList.add('muted_false')
+            muted_false.classList.remove('muted_true')
+            muted_true.classList.add('muted_true')
+            muted_true.classList.remove('muted_false')
+
+            all_videos.forEach((mute)=>{
+
+              mute.classList.add('muted')
+              mute.muted=true
+            })
+
+          })
+
+        
+
+          if(e.classList.contains('muted')){
+            // e.muted = true
+              all_videos.forEach((mute)=>{
+
+              mute.classList.add('muted')
+              mute.muted=true
+            })
+          }else{
+              all_videos.forEach((mute)=>{
+
+              mute.classList.remove('muted')
+              mute.muted=false
+            })
+          }
+
+       }else{
+          e.classList.remove('show_video_current')
+          e.classList.add('hide_video_current')
+          e.muted=true
+          e.currentTime = 0
+          e.pause()
+       }
+
+         product.classList.add('hide_product_current')
+
+       if(current == getNameProdut){
+         product.classList.add('show_product_current')
+         product.classList.remove('hide_product_current')
+        
+       }else{
+          product.classList.remove('show_product_current')
+         product.classList.add('hide_product_current')
+       }
+          
+      
+
+       counter++
+       
+    },1000)
+
+    NT_videos_close.addEventListener('click',()=>{
+    
+      clearInterval(myInterval)
+        all_videos.forEach((e)=>{
+        e.muted=true
+      })
+
+      NT_videos_modal.style.display="none"
+    })
+
+    var control_close_videos =  document.querySelector('.control_close_videos')
+    control_close_videos.addEventListener('click',()=>{
+       clearInterval(myInterval)
+        all_videos.forEach((e)=>{
+        e.muted=true
+      })
+
+      NT_videos_modal.style.display="none"
+    })
+
+   
+  })
+
+})
+
+
+
+}
+
+
+
+var show_video_current = document.querySelector('.show_video_current')
+
+
+
+var btn_collection =  document.querySelectorAll('.NT_videos_collections_btns div')
+var collection_title = document.querySelectorAll('.NT_videos_collection_titles')
+
+
+var collections_base = document.querySelector('.NT_videos_collections_base')
+var show_all_collection = document.querySelector('.NT_videos_show_collections')
+var btn_close_collection = document.querySelector('.NT_videos_collections_close')
+var NT_videos_collections_content_empty = document.querySelector('.NT_videos_collections_content_empty')
+var NT_videos_see_collections = document.querySelector('.NT_videos_see_collections')
+var NT_videos_collections_content = document.querySelector('.NT_videos_collections_content')
+var NT_videos_show_collection_all = document.querySelector('.NT_videos_show_collection_all')
+
+
+NT_videos_see_collections.addEventListener('click',()=>{
+    collections_base.classList.add('NT_videos_show_collection_base')
+    NT_videos_collections_content_empty.classList.add('NT_videos_hide_collection_base')
+    NT_videos_collections_content.classList.remove('NT_videos_hide_collection_base')
+   
+}) 
+
+show_all_collection.addEventListener('click',()=>{
+   collections_base.classList.add('NT_videos_show_collection_base')
+   NT_videos_collections_content_empty.classList.add('NT_videos_hide_collection_base')
+    NT_videos_collections_content.classList.remove('NT_videos_hide_collection_base')
+})
+btn_close_collection.addEventListener('click',()=>{
+    collections_base.classList.remove('NT_videos_show_collection_base')
+    NT_videos_collections_content_empty.classList.remove('NT_videos_hide_collection_base')
+})
+NT_videos_show_collection_all.addEventListener('click',()=>{
+  collections_base.classList.add('NT_videos_show_collection_base')
+   NT_videos_collections_content_empty.classList.remove('NT_videos_hide_collection_base')
+    NT_videos_collections_content.classList.add('NT_videos_hide_collection_base')
+})
+
+
+
+
+
+btn_collection.forEach((btn)=>{
+ 
+  btn.addEventListener('click',(e)=>{
+    btn_collection.forEach((newBtns)=>{
+      newBtns.classList.remove('active')
+    })
+
+    e.target.classList.add('active')
+   
+    var getNameCollection =  e.target.getAttribute('data-btn')
+ 
+    collection_title.forEach((title)=>{
+      
+      var getTitle = title.getAttribute('data-collectionName')
+
+      if(getNameCollection == getTitle ){
+        
+         title.classList.remove('hide_collection_product')
+      }else{
+        title.classList.add('hide_collection_product')
+      }
+
+      if(getNameCollection=='{{ section.settings.cta_collection }}'){
+         title.classList.remove('hide_collection_product')
+      }
+    })
+  })
+})
+
+
+var NT_icon_like = document.querySelector('.NT_video_icon_strock')
+var NT_icon_like_fill = document.querySelector('.NT_video_icon_fill')
+var video_share_quant = document.querySelector('.video_share_quant')
+
+NT_icon_like.addEventListener('click',(e)=>{
+
+    NT_icon_like.classList.toggle('NT_icon_like_hide')
+   NT_icon_like_fill.classList.add('NT_icon_like_show')
+   video_share_quant.innerHTML= 1
+
+  
+})
+NT_icon_like_fill.addEventListener('click',()=>{
+  
+  if(NT_icon_like.classList.contains('NT_icon_like_hide')){
+    NT_icon_like.classList.remove('NT_icon_like_hide')
+  }
+
+  if(NT_icon_like_fill.classList.contains('NT_icon_like_hide')){
+     NT_icon_like_fill.classList.remove('NT_icon_like_hide')
+      NT_icon_like_fill.classList.add('NT_icon_like_show')
+  }
+  if(NT_icon_like_fill.classList.contains('NT_icon_like_show')){
+     NT_icon_like_fill.classList.remove('NT_icon_like_show')
+      NT_icon_like_fill.classList.add('NT_icon_like_hide')
+  }
+   video_share_quant.innerHTML= video_share_quant.innerHTML - 1
+
+  
+})
+
+
+   const urlSearchParams = new URLSearchParams(window.location.search);
+   var NT_videos_modal = document.querySelector('.NT_videos_modal')
+
+
+
+
+  const modal_open = urlSearchParams.get("modal");
+  var open_play_video = document.querySelector('.open_play_video')
+  if(modal_open == 'open'){
+  
+      PlayVideo()
+ 
+      NT_videos_bar.style.display="block"
+     
+ 
+     NT_videos_modal.classList.remove('.NT_videos_modal_hide')
+     NT_videos_modal.classList.add('.NT_videos_modal_show')
+     NT_videos_modal.style.display="grid"
+     
+     
+  }
+
+
+
+const shareBtn = document.querySelector('.videos_btn_share')
+const webSiteUrl= window.location.href
+shareBtn.addEventListener('click', event => {
+
+  if (navigator.share) {
+ 
+    navigator.share({
+      text: '{{ section.settings.share_text }}',
+      url: webSiteUrl+'?modal=open'
+    }).then(() => {
+      console.log('Obrigado por compartilhar!');
+     
+    })
+      .catch((err) => console.error(err));
+  } else {
+   
+    alert("O navegador atual não suporta a função de compartilhamento. Por favor, compartilhe o link manualmente")
+  }
+});
+
+
+
+</script>
+
+{% schema %}
+    {
+        "name": "Elements Video",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Story datas"
+            },
+            {
+                "type": "text",
+                "id": "text",
+                "label": "Story Name"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "User Image"
+            },
+            {
+            "type": "collection_list",
+            "id": "collection_list",
+            "label": "Collections"
+          },
+          {
+            "type": "text",
+            "id": "cta",
+            "label": "Button CTA",
+            "default": "Eu quero"
+           },
+           {
+             "type": "color",
+             "id": "cta_btn_color",
+             "label": "Button CTA Color",
+             "default": "#6734ff"
+           }, 
+          {
+            "type": "text",
+            "id": "cta_collection",
+            "label": "Collection Button CTA",
+            "default": "Todos"
+           },  
+           {
+            "type": "text",
+            "id": "share_text",
+            "label": "Button Share text",
+            "default": "Oi! Assista a esse vídeo comigo e aproveite para comprar produtos com condições exclusivas!"
+           },
+           {
+            "type": "text",
+            "id": "collection_text1",
+            "label": "Collection Text 1",
+            "default": "Adicione produtos à sacola"
+           },
+           {
+            "type": "text",
+            "id": "collection_text2",
+            "label": "Collection Text 2",
+            "default": "Veja os produtos do catálogo e adicione à sacola para comprar."
+           },
+           {
+            "type": "text",
+            "id": "collection_text3",
+            "label": "Collection Button Text",
+            "default": "Ver catálogo"
+           },
+           {
+            "type": "checkbox",
+            "id": "like",
+            "label": "Show Button Like",
+            "default": false
+           }
+        ],
+        "blocks": [
+            {
+                "name": "Products",
+                "type": "product",
+                "limit": 3,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product_list",
+                        "label": "Products",
+                         "limit": 2
+                    },
+                    {
+                        "type": "video",
+                        "id": "video",
+                        "label": "Video"
+                    }
+                   
+                ]
+            }
+        ],    
+         "presets": [
+             {
+                "name": "Elements Video"
+             }
+         ]
+    }
+{% endschema %}
