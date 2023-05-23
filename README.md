@@ -1,5 +1,5 @@
 # Elements videos
-https://github.com/CTElements/Elements-videos/assets/128609521/ab21910b-67e4-45d7-ad0a-cab70e9d7332
+[https://github.com/CTElements/Elements-videos/assets/128609521/ab21910b-67e4-45d7-ad0a-cab70e9d7332](https://github-production-user-asset-6210df.s3.amazonaws.com/128609521/240339282-ab21910b-67e4-45d7-ad0a-cab70e9d7332.mp4)
 **Baixar esse [vídeo](https://github.com/CTElements/Elements-videos/blob/main/video-story.mp4) para poder usar o template**
 
 *Depois de clicar no link, clicar no "View raw" para baixar o vídeo.*
