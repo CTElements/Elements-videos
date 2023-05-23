@@ -4,8 +4,8 @@
 # Confira abaixo as instruções para colocar o template no seu site.
 1. Esse template só funciona na shopify.
 2. O template é compatível com qualquer tema.
-3. Baixe o vídeo [Clique aqui](https://github.com/CTElements/Elements-videos/blob/main/video-story.mp4)
-*Depois de clicar no link, clicar no "View raw" para baixar o vídeo.*
+3. Baixe o vídeo [Clique aqui](https://github.com/CTElements/Elements-videos/blob/main/video-story.mp4),
+*depois de clicar no link, clicar no "View raw" para baixar o vídeo.*
 
 ![img_3](https://github.com/CTElements/Elements-videos/assets/128609521/b807ae9d-ccc8-4802-b091-44b9aff65255)
 ![img_1](https://github.com/CTElements/Elements-videos/assets/128609521/2388a6ac-46dc-4255-b220-6915dcc81423)
