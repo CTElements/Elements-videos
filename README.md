@@ -1,7 +1,8 @@
 # Elements videos
 
 **Baixar esse [vídeo](https://github.com/CTElements/Elements-videos/blob/main/video-story.mp4) e segue as instruções para colocar o template no seu site, esse template só funciona na Shopify e funciona com todos os temas**
-
+# Confira abaixo as instruções para colocar o template no seu site.
+1. Esse template só funciona na shopify.
 *Depois de clicar no link, clicar no "View raw" para baixar o vídeo.*
 
 ![img_3](https://github.com/CTElements/Elements-videos/assets/128609521/b807ae9d-ccc8-4802-b091-44b9aff65255)
